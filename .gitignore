@@ -12,7 +12,12 @@ fronttier/cert/
 
 # Logs
 *.log
-
+#
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+crash.log
 # Environment and secrets
 .env
 .env.*
