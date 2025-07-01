@@ -1,0 +1,23 @@
+# Node.js
+fronttier/node_modules/
+fronttier/dist/
+
+# Spring Boot
+midtier/protected/
+
+# SSL Certificates
+fronttier/cert/
+*.pem
+*.key
+
+# Logs
+*.log
+
+# Environment and secrets
+.env
+.env.*
+
+# IDE/editor files
+.vscode/
+.idea/
+.DS_Store
