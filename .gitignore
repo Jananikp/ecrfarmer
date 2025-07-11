@@ -6,9 +6,6 @@ fronttier/dist/
 midtier/protected/
 
 # SSL Certificates
-fronttier/cert/
-*.pem
-*.key
 
 # Logs
 *.log
