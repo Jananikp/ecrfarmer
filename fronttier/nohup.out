@@ -1,0 +1,31 @@
+
+> vue-tailwind-ecom@0.0.1 dev
+> vite
+
+
+  VITE v6.3.5  ready in 1142 ms
+
+  ➜  Local:   https://localhost:5173/
+  ➜  Vue DevTools: Open https://localhost:5173/__devtools__/ as a separate window
+  ➜  Vue DevTools: Press Option(⌥)+Shift(⇧)+D in App to toggle the Vue DevTools
+  ➜  press h + enter to show help
+(node:59205) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/janani/Downloads/ecrfarmer/fronttier/postcss.config.js?t=1752065063613 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/janani/Downloads/ecrfarmer/fronttier/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+> vue-tailwind-ecom@0.0.1 dev
+> vite
+
+
+  VITE v6.3.5  ready in 1287 ms
+
+  ➜  Local:   https://localhost:5173/
+  ➜  Vue DevTools: Open https://localhost:5173/__devtools__/ as a separate window
+  ➜  Vue DevTools: Press Option(⌥)+Shift(⇧)+D in App to toggle the Vue DevTools
+  ➜  press h + enter to show help
+(node:6292) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Users/janani/Downloads/ecrfarmer/fronttier/postcss.config.js?t=1752154756581 is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Users/janani/Downloads/ecrfarmer/fronttier/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+3:02:14 PM [vite] (client) page reload index.html
