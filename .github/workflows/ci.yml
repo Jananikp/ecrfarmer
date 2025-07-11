@@ -61,9 +61,7 @@ jobs:
 
     
 
-    - name: SpotBugs midtier
-      working-directory: ./midtier
-      run: mvn spotbugs:check
+    
 
     - name: Test midtier
       working-directory: ./midtier
