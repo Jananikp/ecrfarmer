@@ -1,13 +1,15 @@
-FROM node:22-slim AS builder
-
+FROM node:22
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
-
 COPY . .
-RUN npm run build
 
-# Output artifact only
-# You don't even need a final stage — just copy /app/dist/ to your host
+RUN npm install
+RUN npm run build  # or skip this if running dev
+
+EXPOSE 5173
+CMD ["npm", "run", "dev", "--", "--host"]
+COPY startup.sh /app/startup.sh
+RUN chmod +x /app/startup.sh
+
+ENTRYPOINT ["/app/startup.sh"]
