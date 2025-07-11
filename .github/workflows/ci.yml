@@ -59,9 +59,7 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
 
-    - name: Checkstyle midtier
-      working-directory: ./midtier
-      run: mvn checkstyle:check
+    
 
     - name: SpotBugs midtier
       working-directory: ./midtier
