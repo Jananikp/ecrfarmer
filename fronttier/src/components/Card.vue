@@ -1,5 +1,7 @@
 <template>
-  <div class="w-64 flex-shrink-0 bg-white rounded-xl shadow-md p-4 mx-2 hover:shadow-xl transition-shadow">
+  <div
+    class="w-full bg-white rounded-xl shadow-md p-4 mx-2 hover:shadow-xl transition-shadow"
+  >
     <img
       :src="product.imageUrl"
       :alt="product.name"

@@ -23,7 +23,7 @@
         @close="selectedProduct = null"
       />
 
-      <!-- Navigation Arrows -->
+      <!-- Navigation Arrows
       <button
         @click="sliderInstance?.prev()"
         class="absolute left-0 top-1/2 -translate-y-1/2 bg-white border shadow rounded-full p-2 z-10 hover:bg-green-100"
@@ -35,7 +35,26 @@
         class="absolute right-0 top-1/2 -translate-y-1/2 bg-white border shadow rounded-full p-2 z-10 hover:bg-green-100"
       >
         ▶
-      </button>
+      </button> -->
+      <!-- Navigation Arrows -->
+<button
+  @click="sliderInstance?.prev()"
+  class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-3xl z-10 p-2 rounded-full hover:bg-black/20 transition"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+  </svg>
+</button>
+
+<button
+  @click="sliderInstance?.next()"
+  class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-3xl z-10 p-2 rounded-full hover:bg-black/20 transition"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+  </svg>
+</button>
+
     </div>
   </section>
 </template>
@@ -50,18 +69,19 @@ const products = ref([])
 const selectedProduct = ref(null)
 
 const sliderRef = ref()
+
 const [sliderInstance] = useKeenSlider(sliderRef, {
   loop: true,
   slides: {
-    perView: 3,
-    spacing: 24,
+    perView: 1,
+    spacing: 16,
   },
   breakpoints: {
-    '(min-width: 640px)': {
-      slides: { perView: 2.5, spacing: 24 },
+    '(min-width: 768px)': {
+      slides: { perView: 2, spacing: 20 },
     },
     '(min-width: 1024px)': {
-      slides: { perView: 4, spacing: 28 },
+      slides: { perView: 3, spacing: 24 },
     },
   },
 })
@@ -79,3 +99,20 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style>
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.keen-slider__slide {
+  min-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .keen-slider__slide {
+    min-width: auto;
+  }
+}
+</style>

@@ -1,4 +1,3 @@
-<!-- src/components/NavigationBar.vue -->
 <template>
   <nav class="bg-green-800 text-white px-6 py-2 text-sm">
     <ul class="flex space-x-6">

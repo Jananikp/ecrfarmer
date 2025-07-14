@@ -29,3 +29,14 @@ Reparsing as ES module because module syntax was detected. This incurs a perform
 To eliminate this warning, add "type": "module" to /Users/janani/Downloads/ecrfarmer/fronttier/package.json.
 (Use `node --trace-warnings ...` to show where the warning was created)
 3:02:14 PM [vite] (client) page reload index.html
+
+> vue-tailwind-ecom@0.0.1 dev
+> vite
+
+
+  VITE v6.3.5  ready in 571 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Vue DevTools: Open http://localhost:5173/__devtools__/ as a separate window
+  ➜  Vue DevTools: Press Option(⌥)+Shift(⇧)+D in App to toggle the Vue DevTools
+  ➜  press h + enter to show help
