@@ -15,7 +15,7 @@ public class WebConfig {
         registry.addMapping("/api/**") // adjust path pattern as needed
         .allowedOrigins(
     "https://eastcoastfarmer.com",
-    "https://localhost:5173"
+    "http://localhost:5173"
 )
                 
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
