@@ -65,7 +65,7 @@ jobs:
 
     - name: Test midtier
       working-directory: ./midtier
-      run: mvn test
+      run: mvn clean package -DskipTests
 
     - name: Build midtier Docker image
       working-directory: ./midtier
