@@ -3,7 +3,7 @@ fronttier/node_modules/
 fronttier/dist/
 
 # Spring Boot
-midtier/protected/
+#midtier/protected/
 
 # SSL Certificates
 
