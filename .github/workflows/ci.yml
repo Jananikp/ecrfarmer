@@ -9,9 +9,10 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
-    
-
     steps:
+    ########################################
+    # Checkout code
+    ########################################
     - name: Checkout code
       uses: actions/checkout@v4
 
@@ -25,7 +26,6 @@ jobs:
     ########################################
     # Fronttier: React/Vite
     ########################################
-
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -41,66 +41,9 @@ jobs:
 
     - name: Test fronttier
       working-directory: ./fronttier
-      run: npm test || true  # adjust if tests fail intentionally
+      run: npm test || true  # Adjust if tests should fail build
 
     - name: Build fronttier Docker image
       working-directory: ./fronttier
       run: |
         docker build -t fronttier:latest .
-
-    ########################################
-    # Midtier: Spring Boot
-    ########################################
-
-    - name: Set up JDK 21
-      uses: actions/setup-java@v4
-      with:
-        java-version: '21'
-        distribution: 'temurin'
-
-    
-
-    
-
-    - name: Test midtier
-      working-directory: ./midtier
-      run: mvn clean package -DskipTests
-
-    - name: Build midtier Docker image
-      working-directory: ./midtier
-      run: |
-        docker build -t midtier:latest .
-
-    ########################################
-    # Push to AWS ECR
-    ########################################
-
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
-
-    - name: Login to Amazon ECR
-      id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v2
-
-    # Push fronttier
-    - name: Tag & push fronttier image
-      run: |
-        IMAGE_URI=${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPO_FRONTTIER }}
-        docker tag fronttier:latest $IMAGE_URI:latest
-        docker tag fronttier:latest $IMAGE_URI:${{ steps.timestamp.outputs.ts }}
-        docker push $IMAGE_URI:latest
-        docker push $IMAGE_URI:${{ steps.timestamp.outputs.ts }}
-
-    # Push midtier
-    - name: Tag & push midtier image
-      run: |
-        IMAGE_URI=${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPO_MIDTIER }}
-        docker tag midtier:latest $IMAGE_URI:latest
-        docker tag midtier:latest $IMAGE_URI:${{ steps.timestamp.outputs.ts }}
-        docker push $IMAGE_URI:latest
-        docker push $IMAGE_URI:${{ steps.timestamp.outputs.ts }}
-
