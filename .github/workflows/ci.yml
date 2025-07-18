@@ -9,6 +9,8 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
 
+    environment: production
+
     steps:
     ########################################
     # Checkout code
@@ -55,7 +57,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'zulu'
+        distribution: 'temurin'
 
     - name: Build midtier JAR
       working-directory: ./midtier
@@ -74,7 +76,7 @@ jobs:
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ap-south-1
+        aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Login to Amazon ECR
       id: login-ecr
@@ -86,7 +88,6 @@ jobs:
     - name: Tag & push fronttier image
       run: |
         IMAGE_URI=${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPO_FRONTTIER }}
-        echo "Pushing to $IMAGE_URI"
         docker tag fronttier:latest $IMAGE_URI:latest
         docker tag fronttier:latest $IMAGE_URI:${{ steps.timestamp.outputs.ts }}
         docker push $IMAGE_URI:latest
@@ -98,7 +99,6 @@ jobs:
     - name: Tag & push midtier image
       run: |
         IMAGE_URI=${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPO_MIDTIER }}
-        echo "Pushing to $IMAGE_URI"
         docker tag midtier:latest $IMAGE_URI:latest
         docker tag midtier:latest $IMAGE_URI:${{ steps.timestamp.outputs.ts }}
         docker push $IMAGE_URI:latest
