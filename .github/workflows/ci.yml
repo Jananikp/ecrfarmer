@@ -55,7 +55,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '21'
-        distribution: 'jdk'
+        distribution: 'zulu'
 
     - name: Build midtier JAR
       working-directory: ./midtier
